@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Honey 🦋🎀</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      width: 90%;
+      max-width: 600px;
+      background: #ffe6f0;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .page {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="page active" id="page1">
+    <h2>Welcome honeyyyy 🦋🎀</h2>
+    <p>There is a big surprise for you >\<</p>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <div class="page" id="page2">
+    <h2>In order to claim your Reward fill in the correct options:</h2>
+    <img src="https://i.ibb.co/nscLNjHz/bb1.jpg" alt="Intro Image">
+    <button onclick="nextPage()">Start</button>
+  </div>
+
+  <div class="page" id="page3">
+    <h3>When did we first start dating?</h3>
+    <button onclick="checkAnswer(this, 'November 1')">November 1</button>
+    <button onclick="checkAnswer(this, 'wrong')">October 1</button>
+    <button onclick="checkAnswer(this, 'wrong')">October 31</button>
+    <button onclick="checkAnswer(this, 'wrong')">November 11</button>
+    <div class="error hidden">Arehhh itu vi baorishi 😭<br><img src="https://i.ibb.co/LDLsJzx7/bb2.jpg" alt="Error"></div>
+  </div>
+
+  <div class="page" id="page4">
+    <h3>When did we first meet?</h3>
+    <button onclick="checkAnswer(this, 'November 10')">November 10</button>
+    <button onclick="checkAnswer(this, 'wrong')">November 11</button>
+    <button onclick="checkAnswer(this, 'wrong')">November 12</button>
+    <button onclick="checkAnswer(this, 'wrong')">November 13</button>
+    <div class="error hidden">Arehhh itu vi baorishi 😭<br><img src="https://i.ibb.co/LDLsJzx7/bb2.jpg" alt="Error"></div>
+  </div>
+
+  <div class="page" id="page5">
+    <h3>What’s your favourite memory of us together?</h3>
+    <textarea rows="4" cols="40" placeholder="Type your answer here..."></textarea>
+    <br>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <div class="page" id="page6">
+    <h3>What should we often do together?</h3>
+    <button onclick="checkAnswer(this, 'all')">meetup often</button>
+    <button onclick="checkAnswer(this, 'all')">cuddles</button>
+    <button onclick="checkAnswer(this, 'all')">mukbang</button>
+    <button onclick="checkAnswer(this, 'all')">wwe</button>
+    <button onclick="checkAnswer(this, 'all')">all of the above</button>
+    <div class="error hidden">Arehhh itu vi baorishi 😭<br><img src="https://i.ibb.co/LDLsJzx7/bb2.jpg" alt="Error"></div>
+  </div>
+
+  <div class="page" id="page7">
+    <h3>Last question... are you ready for this 😼</h3>
+    <p>Uhmmmm can I pls be your boyfriend 👉🏻👈🏻</p>
+    <button onclick="nextPage()">yes</button>
+    <button onclick="nextPage()">you already are</button>
+    <button onclick="nextPage()">yes definitely</button>
+    <button onclick="nextPage()">of course my love</button>
+    <img src="https://i.ibb.co/KzS9MTT9/bb3.jpg" alt="Cute">
+  </div>
+
+  <div class="page" id="page8">
+    <h2>Congratulations honeyyyy 🥳🥳🎉🎊🎊</h2>
+    <p>I wuv uwu &lt;3<br>I hope this makes ur day 💖</p>
+    <img src="https://i.ibb.co/VYSnNqmn/Screenshot-2025-04-17-034801.png" alt="Surprise Image" style="max-width: 90%; border-radius: 12px; margin-top: 20px;">
+  </div>
+</div>
+
+<script>
+  let currentPage = 1;
+
+  function nextPage() {
+    document.getElementById(`page${currentPage}`).classList.remove('active');
+    currentPage++;
+    document.getElementById(`page${currentPage}`).classList.add('active');
+  }
+
+  function checkAnswer(button, answer) {
+    const page = button.parentElement;
+    const error = page.querySelector('.error');
+
+    if (answer === 'wrong') {
+      error.classList.remove('hidden');
+    } else if (answer === 'all') {
+      nextPage();
+    } else {
+      if (button.textContent === answer) {
+        nextPage();
+      } else {
+        error.classList.remove('hidden');
+      }
+    }
+  }
+</script>
+</body>
+</html>
